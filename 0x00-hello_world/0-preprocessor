@@ -1,4 +1,2 @@
 #!/bin/bash
-C_FILE=$CFILE
-OUTPUT_FILE="c"
-cpp $C_FILE -o $OUTPUT_FILE
+j
