@@ -1,3 +1,2 @@
 #!/bin/bash
 cpp $C_FILE -o $OUTPUT_FILE
-
