@@ -1,9 +1,8 @@
 #include <stdio.h>
 
 /**
-* main - Entry point
-* Description: Using printf
-* Return : 0
+* main - prints a phrase
+* Return: 0
 */
 int main(void)
 {
