@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -S $CFILE -o ${c_file%.c}.s
+gcc -S $CFILE -o "${c_file%.c}.s"
