@@ -1,2 +1,3 @@
 #!/bin/bash
-j
+cpp $C_FILE -o $OUTPUT_FILE
+
