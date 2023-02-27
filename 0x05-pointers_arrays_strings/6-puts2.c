@@ -14,6 +14,9 @@ for (i = 0; str[i] != '\0' && str[i + 1] != '\0'; i += 2)
 _putchar(str[i]);
 }
 
+/* Add a null terminator */
+str[i] = '\0';
+
 /* Print a new line character */
 _putchar('\n');
 }
