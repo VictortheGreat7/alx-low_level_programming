@@ -1,20 +1,38 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-#define PASSWORD_LENGTH 12
+/**
+* main - generates a random password and prints it to stdout
+* Return: Always 0 (Success)
+*/
 
-int main(void) {
-  char password[PASSWORD_LENGTH + 1]; // +1 for null terminator
-  const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+int main(void)
+{
+  int i, sum, n;
+  char c;
 
-  srand(time(NULL)); // seed random number generator
+  int passwordLength = 10;
+  char password[passwordLength];
 
-  for (int i = 0; i < PASSWORD_LENGTH; i++) {
-    password[i] = charset[rand() % (sizeof(charset) - 1)];
-  }
+  srand(time(NULL));
 
-  password[PASSWORD_LENGTH] = '\0'; // add null terminator
+  for (i = 0, sum = 0; sum < passwordLength - 1; i++)
+    {
+      n = rand() % 62;
+      if (n < 26)
+	c = 'A' + n;
+      else if (n < 52)
+	c = 'a' + (n - 26);
+      else
+	c = '0' + (n - 52);
+
+      password[i] = c;
+      sum += c % 10 ? 1 : 0;
+    }
+
+  password[i] = '\0';
 
   printf("%s\n", password);
 
