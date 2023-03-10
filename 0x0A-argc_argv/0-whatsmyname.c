@@ -1,48 +1,25 @@
 #include "main.h"
+#include <stdio.h>
+#include <string.h>
 
 /**
 * main - prints the name of the program
-* @argc: number of command-line arguments
-* @argv: array of command-line arguments
-* Return: 0 on success
+* @argc: the number of command-line arguments
+* @argv: an array of pointers to the command-line arguments
+* Return: 0 (Success)
 */
-int main(int argc, char *argv[])
+int main(__attribute__((unused)) int argc, char *argv[])
 {
-int i;
+char *program_name;
 
-for (i = 0; i < argc; i++)
-{
+program_name = strrchr(argv[0], '/');
 
-_puts(argv[i]);
-}
+if (program_name == NULL)
+program_name = argv[0];
+else
+program_name++;
+
+printf("%s\n", program_name);
 
 return (0);
-}
-
-/**
-* _puts - prints a string to stdout
-* @str: string to print
-*/
-void _puts(char *str)
-{
-int i;
-
-for (i = 0; str[i] != '\0'; i++)
-{
-_putchar(str[i]);
-}
-
-_putchar('\n');
-}
-
-#include <unistd.h>
-
-/**
-* _putchar - writes a character to the standard output
-* @c: the character to print
-* Return: 1 (Success) or -1 (Failure)
-*/
-int _putchar(char c)
-{
-return (write(1, &c, 1));
 }
