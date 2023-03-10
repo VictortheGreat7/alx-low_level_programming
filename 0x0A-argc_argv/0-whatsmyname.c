@@ -20,24 +20,28 @@ return (0);
 }
 
 /**
- * _puts - prints a string to stdout
- *
- * @str: string to print
- */
+* _puts - prints a string to stdout
+* @str: string to print
+*/
 void _puts(char *str)
 {
-  int i;
+int i;
 
-  for (i = 0; str[i] != '\0'; i++)
-	{
-	  _putchar(str[i]);
-	}
+for (i = 0; str[i] != '\0'; i++)
+{
+_putchar(str[i]);
+}
 
-  _putchar('\n');
+_putchar('\n');
 }
 
 #include <unistd.h>
 
+/**
+* _putchar - writes a character to the standard output
+* @c: the character to print
+* Return: 1 (Success) or -1 (Failure)
+*/
 int _putchar(char c)
 {
 return (write(1, &c, 1));
