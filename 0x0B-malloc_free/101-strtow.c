@@ -1,70 +1,67 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
-* count_words - Counts the number of words in a string.
-* @str: The string to count words in.
-* Return: The number of words in @str.
+* count_words - Counts the number of words in a string
+* @str: The string to count words in
+* Return: The number of words in str
 */
-static int count_words(char *str)
+int count_words(char *str)
 {
-int count = 0, in_word = 0;
-while (*str)
+int count = 0, i, is_word = 0;
+for (i = 0; str[i] != '\0'; ++i)
 {
-if (*str == ' ')
-in_word = 0;
-else if (!in_word)
+if (str[i] != ' ')
 {
-in_word = 1;
-count++;
+if (!is_word)
+{
+++count;
+is_word = 1;
 }
-str++;
+}
+else
+{
+is_word = 0;
+}
 }
 return (count);
 }
 
 /**
-* strtow - Splits a string into words.
-* @str: The string to split.
-* Return: A pointer to an array of strings (words),
-* or NULL if str == NULL or if memory allocation fails.
+* strtow - Splits a string into words
+* @str: The string to split
+* Return: A pointer to an array of strings (words)
 */
 char **strtow(char *str)
 {
-char **words;
-int num_words, i, j, k, len;
-if (str == NULL || *str == '\0')
+int i, j, k, len, words;
+char **arr;
+if (str == NULL || str[0] == '\0')
 return (NULL);
-num_words = count_words(str);
-words = malloc((num_words + 1) * sizeof(char *));
-if (words == NULL)
+words = count_words(str);
+arr = malloc(sizeof(char *) * (words + 1));
+if (arr == NULL)
 return (NULL);
-i = 0;
-while (*str)
+for (i = 0, j = 0; i < words; ++i)
 {
-if (*str == ' ')
+while (str[j] == ' ')
+++j;
+len = 0;
+while (str[j + len] != ' ' && str[j + len] != '\0')
+++len;
+arr[i] = malloc(sizeof(char) * (len + 1));
+if (arr[i] == NULL)
 {
-str++;
-continue;
-}
-j = 0;
-while (str[j] != ' ' && str[j] != '\0')
-j++;
-len = j;
-words[i] = malloc((len + 1) * sizeof(char));
-if (words[i] == NULL)
-{
-for (k = 0; k < i; k++)
-free(words[k]);
-free(words);
+for (k = 0; k < i; ++k)
+free(arr[k]);
+free(arr);
 return (NULL);
 }
-for (j = 0; j < len; j++)
-words[i][j] = str[j];
-words[i][j] = '\0';
-i++;
-str += len;
+for (k = 0; k < len; ++k)
+arr[i][k] = str[j++];
+arr[i][k] = '\0';
 }
-words[num_words] = NULL;
-return (words);
+arr[i] = NULL;
+return (arr);
 }
