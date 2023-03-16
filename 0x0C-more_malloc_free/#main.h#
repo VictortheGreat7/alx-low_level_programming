@@ -12,10 +12,6 @@ int *array_range(int min, int max);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 int is_digit(char c);
-unsigned int str_len(char *str);
-int _atoi(char *str);
-void print_number(unsigned int n);
-void _puts(char *str);
 void mul(char *num1, char *num2);
 
 #endif
