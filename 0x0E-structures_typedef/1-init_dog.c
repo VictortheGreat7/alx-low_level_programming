@@ -1,9 +1,9 @@
 #include "dog.h"
+#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 /**
-* init_dog - Initializes a variable of type struct dog
+* init_dog - Initializes a struct dog with given values
 * @d: Pointer to the struct dog variable to initialize
 * @name: Dog's name
 * @age: Dog's age
@@ -12,17 +12,12 @@
 */
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-d->name = malloc(strlen(name) + 1);
-if (d->name)
+if (d == NULL)
 {
-strcpy(d->name, name);
+printf("Error: dog pointer is NULL.\n");
+exit(EXIT_FAILURE);
 }
-
+d->name = name;
 d->age = age;
-
-d->owner = malloc(strlen(owner) + 1);
-if (d->owner)
-{
-strcpy(d->owner, owner);
-}
+d->owner = owner;
 }
