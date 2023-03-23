@@ -9,6 +9,7 @@
 void print_char(va_list valist)
 {
 	char c = va_arg(valist, int);
+
 	printf("%c", c);
 }
 
@@ -19,6 +20,7 @@ void print_char(va_list valist)
 void print_int(va_list valist)
 {
 	int i = va_arg(valist, int);
+
 	printf("%d", i);
 }
 
@@ -29,6 +31,7 @@ void print_int(va_list valist)
 void print_float(va_list valist)
 {
 	float f = va_arg(valist, double);
+
 	printf("%f", f);
 }
 
@@ -39,6 +42,7 @@ void print_float(va_list valist)
 void print_string(va_list valist)
 {
 	char *s = va_arg(valist, char *);
+
 	if (s == NULL)
 		printf("(nil)");
 	else
