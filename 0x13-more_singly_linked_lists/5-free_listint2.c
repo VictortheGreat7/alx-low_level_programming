@@ -3,7 +3,6 @@
 /**
 * free_listint2 - frees a listint_t list and sets head to NULL
 * @head: double pointer to the head of the list
-*
 * Return: void
 */
 
