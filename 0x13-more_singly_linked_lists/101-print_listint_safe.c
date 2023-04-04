@@ -52,7 +52,7 @@ return (count);
 * print_address - Prints the memory address of a pointer.
 * @ptr: A pointer to print the address of.
 */
-void print_address(void *ptr)
+void print_address(void *ptr, char buffer[])
 {
 char buffer[32];
 unsigned long int address = (unsigned long int)ptr;
@@ -89,7 +89,7 @@ _putchar(']');
 * print_number - Prints an integer.
 * @n: The integer to print.
 */
-void print_number(int n)
+void print_number(int n, char buffer[])
 {
 char buffer[10];
 int index = 0;
