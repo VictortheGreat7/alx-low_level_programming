@@ -1,6 +1,8 @@
 #ifndef LISTS_H
 #define LISTS_H
 
+#define BUFFER_SIZE 32
+
 #include <unistd.h>
 #include <stdio.h>
 #include <stddef.h>
