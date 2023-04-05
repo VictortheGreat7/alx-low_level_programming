@@ -51,6 +51,7 @@ return (count);
 
 /**
 * print_address - Prints the memory address of a pointer.
+* @buffer: A character buffer to store the hexadecimal representation of
 * @ptr: A pointer to print the address of.
 */
 void print_address(void *ptr, char buffer[])
@@ -88,6 +89,7 @@ _putchar(']');
 /**
 * print_number - Prints an integer.
 * @n: The integer to print.
+* @buffer: A character buffer to store the hexadecimal representation of
 */
 void print_number(int n, char buffer[])
 {
