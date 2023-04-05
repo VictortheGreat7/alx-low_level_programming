@@ -9,6 +9,7 @@ size_t print_listint_safe(const listint_t *head)
 {
 const listint_t *current = head, *array[1024];
 size_t count = 0, i;
+char buffer[BUFFER_SIZE];
 
 while (current != NULL)
 {
@@ -19,9 +20,9 @@ if (array[i] == current)
 _putchar('-');
 _putchar('>');
 _putchar(' ');
-print_address((void *)current);
+print_address((void *)current, buffer);
 _putchar(' ');
-print_number(current->n);
+print_number(current->n, buffer);
 _putchar('\n');
 return (count);
 }
@@ -31,17 +32,17 @@ if (count == 1024)
 _putchar('-');
 _putchar('>');
 _putchar(' ');
-print_address((void *)current);
+print_address((void *)current, buffer);
 _putchar(' ');
-print_number(current->n);
+print_number(current->n, buffer);
 _putchar('\n');
 return (count);
 }
 array[count] = current;
 count++;
-print_address((void *)current);
+print_address((void *)current, buffer);
 _putchar(' ');
-print_number(current->n);
+print_number(current->n, buffer);
 _putchar('\n');
 current = current->next;
 }
@@ -54,7 +55,6 @@ return (count);
 */
 void print_address(void *ptr, char buffer[])
 {
-char buffer[32];
 unsigned long int address = (unsigned long int)ptr;
 unsigned int index = 0;
 
@@ -91,7 +91,6 @@ _putchar(']');
 */
 void print_number(int n, char buffer[])
 {
-char buffer[10];
 int index = 0;
 
 if (n < 0)

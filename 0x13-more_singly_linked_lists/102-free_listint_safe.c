@@ -9,15 +9,17 @@ size_t free_listint_safe(listint_t **h)
 {
 size_t count = 0;
 listint_t *tmp, *curr = *h;
+char address_buffer[32];
+char number_buffer[10];
 
 while (curr)
 {
 count++;
 if (curr <= curr->next)
 {
-print_address((void *) curr);
+print_address((void *) curr, address_buffer);
 _putchar(' ');
-print_number(curr->n);
+print_number(curr->n, number_buffer);
 _putchar('\n');
 break;
 }
