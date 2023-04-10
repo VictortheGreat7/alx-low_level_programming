@@ -17,7 +17,7 @@ char *buffer = malloc(letters);
 ssize_t bytes_read, bytes_written;
 
 bytes_read = read(fd, buffer, letters);
-bytes_written = write(STDOUT_FILENO, buffer, n_read);
+bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
 
 if (filename == NULL)
 return (0);
