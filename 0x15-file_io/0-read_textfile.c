@@ -37,7 +37,7 @@ close(fd);
 return (0);
 }
 
-if (bytes_written == -1 || bytes_written != n_read)
+if (bytes_written == -1 || bytes_written != bytes_read)
 {
 free(buffer);
 close(fd);
