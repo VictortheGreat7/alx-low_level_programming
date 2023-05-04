@@ -14,9 +14,13 @@ unsigned int n = 0;
 int position = strlen(b) - 1;
 unsigned int multiplier = 1;
 
-if (b == NULL)
+if (b == NULL || *b == '\0')
 {
 return (0);
+}
+while (*b == '0' && *(b + 1) != '\0')
+{
+b++;
 }
 while (position >= 0)
 {
