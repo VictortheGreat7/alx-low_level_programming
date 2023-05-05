@@ -11,23 +11,19 @@
 unsigned int binary_to_uint(const char *b)
 {
 unsigned int n = 0;
-unsigned int position = strlen(b) - 1;
+unsigned int position = 0;
 unsigned int decimal_value = 1;
 
 if (b == NULL)
-{
 return (0);
-}
+
+position = strlen(b) - 1;
 while (position < strlen(b))
 {
 if (b[position] != '0' && b[position] != '1')
-{
 return (0);
-}
 if (b[position] == '1')
-{
 n += decimal_value;
-}
 decimal_value *= 2;
 position--;
 }
