@@ -20,7 +20,7 @@ return (-1);
 
 if (text_content != NULL)
 {
-if (bytes_written != (size_t) text_length)
+if (bytes_written != (ssize_t) text_length)
 {
 close(fd);
 return (-1);
