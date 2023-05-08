@@ -15,7 +15,7 @@ int create_file(const char *filename, char *text_content)
 int flags = O_WRONLY | O_CREAT | O_TRUNC;
 int mode = S_IRUSR | S_IWUSR;
 int fd = open(filename, flags, mode);
-size_t len = strlen(text_content);
+int len = strlen(text_content);
 ssize_t bytes_written = write(fd, text_content, len);
 
 if (filename == NULL)
