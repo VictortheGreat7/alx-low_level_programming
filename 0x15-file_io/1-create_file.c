@@ -30,6 +30,7 @@ if (bytes_written == -1 || bytes_written != len)
 close(fd);
 return (-1);
 }
+len++;
 }
 close(fd);
 return (1);
