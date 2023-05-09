@@ -23,7 +23,7 @@ return (-1);
 if (text_content != NULL)
 {
 len = strlen(text_content);
-if (bytes_written == -1)
+if (bytes_written == -1 || bytes_written != len)
 {
 close(fd);
 return (-1);
