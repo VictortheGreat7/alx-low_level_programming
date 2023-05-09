@@ -13,14 +13,18 @@
 int create_file(const char *filename, char *text_content)
 {
 int mode = S_IRUSR | S_IWUSR;
-int fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, mode);
+int fd = open(filename, O_CREAT | O_EXCL | O_WRONLY, mode);
 size_t len = 0;
 ssize_t bytes_written = write(fd, text_content, len);
 
 if (filename == NULL)
 return (-1);
 if (fd == -1)
+{
+fd = open(filename, O_WRONLY | O_TRUNC);
+if (fd == -1)
 return (-1);
+}
 if (text_content != NULL)
 len = strlen(text_content);
 if (len > 0)
