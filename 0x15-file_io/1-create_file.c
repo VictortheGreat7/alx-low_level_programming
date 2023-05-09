@@ -12,21 +12,18 @@
 
 int create_file(const char *filename, char *text_content)
 {
-int flags = O_WRONLY | O_CREAT | O_TRUNC;
-int mode = S_IRUSR | S_IWUSR;
-int fd = open(filename, flags, mode);
-size_t len = strlen(text_content);
-ssize_t bytes_written = write(fd, text_content, len);
+int fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
+ssize_t len = 0;
+int bytes_written = write(fd, text_content, len);
 
 if (filename == NULL)
 return (-1);
-if (text_content == NULL)
-text_content = "";
 if (fd == -1)
 return (-1);
 if (text_content != NULL)
 {
-if (bytes_written == -1 || bytes_written != (ssize_t) len)
+len = strlen(text_content);
+if (bytes_written == -1)
 {
 close(fd);
 return (-1);
