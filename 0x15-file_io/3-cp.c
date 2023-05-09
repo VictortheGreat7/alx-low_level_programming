@@ -22,10 +22,15 @@ if (fd_from == -1 || fd_to == -1)
 {
 dprintf(STDERR_FILENO, "Error: ");
 if (fd_from == -1)
+{
 dprintf(STDERR_FILENO, "Can't read from file %s\n", argv[1]);
-else
+exit(99);
+}
+if(fd_to == -1)
+{
 dprintf(STDERR_FILENO, "Can't write to %s\n", argv[2]);
-exit(98 + (fd_from == -1));
+exit(99);
+}
 }
 do {
 read_len = read(fd_from, buffer, 1024);
@@ -49,4 +54,3 @@ exit(100);
 }
 return (0);
 }
-
