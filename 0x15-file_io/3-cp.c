@@ -1,3 +1,4 @@
+
 #include "main.h"
 
 /**
@@ -20,10 +21,16 @@ exit(97);
 }
 if (fd_from == -1 || fd_to == -1)
 {
-dprintf(STDERR_FILENO, "Error: Can't %s %s\n",
-fd_from == -1 ? "read from file" : "write to",
-fd_from == -1 ? argv[1] : argv[2]);
+if (fd_from == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+exit(98);
+}
+else
+{
+dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
 exit(99);
+}
 }
 do {
 read_len = read(fd_from, buffer, 1024);
